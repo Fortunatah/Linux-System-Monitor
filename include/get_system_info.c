@@ -4,6 +4,7 @@ pi*/
 
 // Librares
 #include <stdio.h>
+#include <stdlib.h>
 #include "get_system_info.h"
 
 
