@@ -6,6 +6,7 @@ All statements will run through this
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 
 #define LINE "==============================\n"
@@ -30,6 +31,9 @@ void menu(){
 
 
 int main(){
-    menu();
+    while(1){
+        sleep(1);
+        menu();
+    }
     return 0;
 }
