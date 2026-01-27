@@ -13,7 +13,7 @@ $(BUILD)/main.o: $(SRC)/main.c | $(BUILD)
 	gcc $(CFLAGS) -c $(SRC)/main.c -o $(BUILD)/main.o
 
 $(BUILD)/get_system_info.o: $(INCLUDE)/get_system_info.c | $(BUILD)
-	gcc $(CFLAGS) -c $(SRC)/get_system_info.c -o $(BUILD)/get_system_info.o
+	gcc $(CFLAGS) -c $(INCLUDE)/get_system_info.c -o $(BUILD)/get_system_info.o
 
 $(BUILD):
 	mkdir -p $(BUILD)
