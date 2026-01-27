@@ -8,7 +8,7 @@ All statements will run through this
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h> // linux module used for time
-#include "include/get_system_info.h"
+#include "include\get_system_info.h"
 
 
 #define LINE "==============================\n"
