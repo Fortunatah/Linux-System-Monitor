@@ -6,7 +6,7 @@ All statements will run through this
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <unistd.h> // linux module
 
 
 #define LINE "==============================\n"
