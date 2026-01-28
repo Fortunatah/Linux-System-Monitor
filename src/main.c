@@ -34,7 +34,7 @@ void menu(){
 
 int main(){
     while(1){
-        clear_screen
+        clear_screen();
         sleep(3);
         menu();
     }
