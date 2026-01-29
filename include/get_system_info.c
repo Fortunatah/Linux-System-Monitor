@@ -23,5 +23,5 @@ char *get_cpu_info(){
 
     memcpy( line , buffer , sizeof(buffer));
     fclose(file);
-    return buffer;
+    return line;
 }
