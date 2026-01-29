@@ -13,8 +13,9 @@ void clear_screen(){
     system("clear");
 } //void clear_screen()
 
-void get_cpu_info(){
+char *get_cpu_info(){
     char *lines;
     lines = system("cat /proc/cpuinfo");
     printf("string = %s\n" , lines);
+    return lines;
 }
