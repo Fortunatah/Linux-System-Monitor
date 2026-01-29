@@ -14,8 +14,10 @@ void clear_screen(){
 } //void clear_screen()
 
 char *get_cpu_info(){
-    char *lines;
-    lines = system("cat /proc/cpuinfo");
-    printf("string = %s\n" , lines);
-    return lines;
+    FILE *file = fopen("/proc/cpuinfo" , "r");
+    char buffer[256];
+    while(fgets(buffer, sizeof(buffer) , file)){
+        printf("%s\n" , buffer);
+    }
+    return buffer;
 }
