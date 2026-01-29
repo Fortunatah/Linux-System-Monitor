@@ -2,5 +2,6 @@
 #define GET_SYSTEM_INFO_H
 
 void clear_screen();
+void get_cpu_info();
 
 #endif
