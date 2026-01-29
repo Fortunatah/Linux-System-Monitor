@@ -16,8 +16,12 @@ void clear_screen(){
 char *get_cpu_info(){
     FILE *file = fopen("/proc/cpuinfo" , "r");
     char buffer[256];
+    char *line = malloc(sizeof(buffer));
     while(fgets(buffer, sizeof(buffer) , file)){
         printf("%s\n" , buffer);
     }
+
+    memcpy( line , buffer , sizeof(buffer));
+    fclose(file);
     return buffer;
 }
