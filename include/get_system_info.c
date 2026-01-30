@@ -15,7 +15,7 @@ void clear_screen(){
 
 char *get_substring( char *source , char *destination , int start_index , int length){
     strncpy( destination , source + start_index , length );
-    destination[length] = '\\0';
+    destination[length] = '\0';
 }
 
 cpuInfo get_cpu_info(){
@@ -26,7 +26,7 @@ cpuInfo get_cpu_info(){
         if(strstr(buffer , "Model")){
             char *destination = (char *)malloc(sizeof(buffer));
             int length = (int) strlen(buffer);
-            char *pos = strchr(buffer , ":");
+            char *pos = strchr(buffer , ':');
             int index = pos - buffer;
             tempCPU.model = get_substring( buffer , destination , index , length);
         }
