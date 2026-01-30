@@ -36,7 +36,7 @@ int main(){
     cpuInfo cpu = get_cpu_info();
     int percentage = read_cpu_percentage();
     while(1){
-        clear_screen();
+        // clear_screen();
         //menu( cpu );
         sleep(3);
     }
