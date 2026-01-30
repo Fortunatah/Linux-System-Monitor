@@ -24,9 +24,11 @@ cpuInfo get_cpu_info(){
     char buffer[256];
     while(fgets(buffer, sizeof(buffer) , file)){
         if(strstr(buffer , "Model")){
-            char *modelSub = (char *)malloc(sizeof(buffer));
-            int modelLength = (int) strlen(buffer);
-            tempCPU.model = get_substring( buffer , modelSub , strchr(buffer , ":") , modelLength);
+            char *destination = (char *)malloc(sizeof(buffer));
+            int length = (int) strlen(buffer);
+            char *pos = strchr(buffer , ":");
+            int index = pos - buffer;
+            tempCPU.model = get_substring( buffer , destination , index , length);
         }
     }
 
