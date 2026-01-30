@@ -19,14 +19,24 @@ char *get_substring( char *source , char *destination , int start_index , int le
     return destination;
 }
 
-int read_cpu_percentage(){
+char *read_stat_file(){
     FILE *file = fopen("/proc/stat" , "r");
     char buffer[256];
+    char *line = malloc(sizeof(buffer));
     while(fgets(buffer, sizeof(buffer) , file)){
         if(strstr( buffer , "cpu")){
-            printf( "cpu = %s" , buffer);
+            int length = (int) strlen(buffer);
+            strcpy( line  , buffer );
+            line[length] = '\0';
+            return line;
         }
     }
+}
+
+
+int read_cpu_percentage(){
+    char *firstPass = read_stat_file();
+    printf("first pass = %s\n", firstPass);
     int percentage = 0;
     return percentage;
 }
