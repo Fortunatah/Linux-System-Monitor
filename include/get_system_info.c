@@ -15,6 +15,7 @@ void clear_screen(){
 
 char *get_substring( char *source , char *destination , int start_index , int length){
     strncpy( destination , source + start_index , length );
+    printf("desination = %s\n" , destination);
     destination[length] = '\0';
 }
 
