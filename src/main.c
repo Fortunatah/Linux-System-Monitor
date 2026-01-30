@@ -38,7 +38,7 @@ int main(){
         clear_screen();
         cpuInfo cpu = get_cpu_info();
         printf("%s\n" , cpu.model);
-        menu();
+        //menu();
         sleep(3);
     }
     return 0;

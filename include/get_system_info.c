@@ -29,6 +29,7 @@ cpuInfo get_cpu_info(){
             char *pos = strchr(buffer , ':');
             int index = pos - buffer;
             tempCPU.model = get_substring( buffer , destination , index , length);
+            printf("cpu = %s\n" , tempCPU.model);
         }
     }
 
