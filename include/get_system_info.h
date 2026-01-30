@@ -2,9 +2,11 @@
 #define GET_SYSTEM_INFO_H
 
 void clear_screen();
-char * get_cpu_info();
-typedef struct{
 
+typedef struct{
+    char *model;
 }cpuInfo;
+
+cpuInfo get_cpu_info();
 
 #endif
