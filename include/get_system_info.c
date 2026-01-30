@@ -33,4 +33,5 @@ cpuInfo get_cpu_info(){
     }
 
     fclose(file);
+    return tempCPU;
 }
