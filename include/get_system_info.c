@@ -20,7 +20,7 @@ char *get_substring( char *source , char *destination , int start_index , int le
 }
 
 int read_cpu_percentage(){
-    FILE *file = fopen("/proc/cpustat" , "r");
+    FILE *file = fopen("/proc/stat" , "r");
     char buffer[256];
     while(fgets(buffer, sizeof(buffer) , file)){
         if(strstr( buffer , "cpu")){
