@@ -15,8 +15,8 @@ void clear_screen(){
 
 char *get_substring( char *source , char *destination , int start_index , int length){
     strncpy( destination , source + start_index , length );
-    printf("desination = %s\n" , destination);
     destination[length] = '\0';
+    return destination;
 }
 
 cpuInfo get_cpu_info(){
@@ -29,7 +29,7 @@ cpuInfo get_cpu_info(){
             int length = (int) strlen(buffer);
             char *pos = strchr(buffer , ':');
             int index = pos - buffer;
-            tempCPU.model = get_substring( buffer , destination , index , length);
+            tempCPU.model= get_substring( buffer , destination , index , length);
             printf("cpu = %s\n" , tempCPU.model);
         }
     }
