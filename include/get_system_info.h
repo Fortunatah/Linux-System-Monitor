@@ -9,5 +9,6 @@ typedef struct{
 }cpuInfo;
 
 cpuInfo get_cpu_info();
+int read_cpu_percentage();
 
 #endif

@@ -19,6 +19,18 @@ char *get_substring( char *source , char *destination , int start_index , int le
     return destination;
 }
 
+int read_cpu_percentage(){
+    FILE *file = fopen("/proc/cpustat" , "r");
+    char buffer[256];
+    while(fgets(buffer, sizeof(buffer) , file)){
+        if(strstr( buffer , "cpu")){
+            printf( "cpu = %s" , buffer);
+        }
+    }
+    int percentage = 0;
+    return percentage;
+}
+
 cpuInfo get_cpu_info(){
     cpuInfo tempCPU;
     FILE *file = fopen("/proc/cpuinfo" , "r");
