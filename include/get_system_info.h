@@ -3,5 +3,8 @@
 
 void clear_screen();
 char * get_cpu_info();
+typedef struct{
+
+}cpuInfo;
 
 #endif

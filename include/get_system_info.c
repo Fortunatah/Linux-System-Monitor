@@ -18,7 +18,9 @@ char *get_cpu_info(){
     char buffer[256];
     char *line = malloc(sizeof(buffer));
     while(fgets(buffer, sizeof(buffer) , file)){
-        printf("%s\n" , buffer);
+        if(strstr(buffer , "Model")){
+            printf("buffer = %s\n" , buffer);
+        }
     }
 
     memcpy( line , buffer , sizeof(buffer));

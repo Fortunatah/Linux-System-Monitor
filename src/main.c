@@ -36,7 +36,7 @@ int main(){
 
     while(1){
         clear_screen();
-        char *cpuInfo = get_cpu_info();
+        char *cpuModel = get_cpu_info();
         menu();
         sleep(3);
     }
