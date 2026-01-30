@@ -17,7 +17,7 @@ void menu( cpuInfo cpu ){
     printf("\n Linux System Monitor\n");
     printf("%s\n" , LINE);
     printf("CPU: %s\n" , cpu.model);
-    printf("Cores: 8\n");
+    printf("Cores: %d\n" , cpu.cores);
     printf("CPU Usage: 12.4\n\n");
     printf("Memory: ");
     printf("\n\tTotal: 15.6 GB\n");

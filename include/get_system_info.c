@@ -23,15 +23,25 @@ cpuInfo get_cpu_info(){
     cpuInfo tempCPU;
     FILE *file = fopen("/proc/cpuinfo" , "r");
     char buffer[256];
+    int coresAmount = 0;
     while(fgets(buffer, sizeof(buffer) , file)){
+        // get the model of the processor
         if(strstr(buffer , "Model")){
             char *destination = (char *)malloc(sizeof(buffer));
             int length = (int) strlen(buffer);
             char *pos = strchr(buffer , ':');
             int index = pos - buffer + 2;
             tempCPU.model= get_substring( buffer , destination , index , length);
-            printf("cpu = %s\n" , tempCPU.model);
         }
+        // see how many cores there are
+        if(strstr(buffer , "processor")){
+            coresAmount++;
+        }
+        
+    }
+    // if cores ammount is greater than zero
+    if( coresAmount > 0 ){
+        tempCPU.cores = coresAmount;
     }
 
     fclose(file);

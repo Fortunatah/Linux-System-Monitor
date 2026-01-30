@@ -5,6 +5,7 @@ void clear_screen();
 
 typedef struct{
     char *model;
+    int cores;
 }cpuInfo;
 
 cpuInfo get_cpu_info();
