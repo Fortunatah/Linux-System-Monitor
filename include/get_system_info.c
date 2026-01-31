@@ -40,7 +40,7 @@ int get_idle( char *pass){
     int count = 0;
     int total = 0;
     char add[32];   // enough for CPU numbers
-
+    printf("pass = %s\n" , pass);
     while (pass[i] != '\0') { // go until end of the line
         // if we have a space add to it
         if (pass[i] == ' ') {
@@ -58,7 +58,6 @@ int get_idle( char *pass){
         }
         i++;
     }
-    printf("add=%d\n" , total);
 }
 int get_line_total(char *pass) {
     int i = 0;
