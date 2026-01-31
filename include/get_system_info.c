@@ -32,6 +32,7 @@ char *read_stat_file(){
             return line;
         }
     }
+    if(!line) return NULL;
 }
 
 int get_idle( char *pass){
