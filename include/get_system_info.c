@@ -56,6 +56,7 @@ int get_idle( char *pass){
         if(spaceCount == 3 || spaceCount == 4){
             add[count++] = pass[i];
         }
+        i++;
     }
     printf("add=%s\n" , add);
 }
