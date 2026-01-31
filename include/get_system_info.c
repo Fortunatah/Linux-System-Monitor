@@ -6,7 +6,8 @@ pi*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+#include <unistd.h> // linus time library
+#include <ctype.h>
 #include "get_system_info.h"
 
 
@@ -143,6 +144,32 @@ sysInfo get_cpu_info(){
     return tempCPU;
 }
 
+typedef struct{
+    int start;
+    int end;
+}index;
+
+index get_index( char *line){
+    index Index
+    Index.start = 0; // we will zero on both of them as a check
+    // grab the start
+    for(int i = 0; line[i] != '\0'; i++){
+        // find the first digit
+        if(isdigit(line[i])){
+            Index.start = i;
+            break;
+        }
+    }
+    // start  from the first digit
+    for( i = Index.start; line[i] != '\0' ; i++){
+        if(line[i] == ' '){
+            Index.end = i;
+            break;
+        }
+    }
+    return Index;
+}
+
 sysInfo get_mem_info( sysInfo system ){
     FILE *file = fopen("/proc/meminfo" , "r");
     char buffer[256];
@@ -150,11 +177,9 @@ sysInfo get_mem_info( sysInfo system ){
         // get the model of the processor
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
-            int length = (int) strlen(buffer);
-            char *pos = strchr(buffer , '1');
-            int index = pos - buffer - 2 ;
-            get_substring( buffer , destination , index , length);
-            printf("memory=%s\n" , destination );
+            index Index = get_index();
+            printf("start = %d ,  end = %d\n" , Index.start , Index.end; );
+
         }
         
     }
