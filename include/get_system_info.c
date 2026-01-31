@@ -33,19 +33,29 @@ char *read_stat_file(){
         }
     }
 }
-/*
+
 int get_line_total( char *pass){
     char c;
     int num;
-    char *add = "";
+    char *add = '\0';
+    int total = 0;
+    int count = 0;
+    int i;
     
     while((c = pass[i]) != '\0'){
         if((c = pass[i]) == ' '){
-            return 0;
+            printf("add=%s" , add);
+            //num = strol(add , NULL , 10 ); // conver to int
+            //total = total +  num;
+            count = 0;
+            add = '\0';
         }
+        add[count] = pass[i];
+        count++;
+        i++;
     }
+    return 1;
 }
-*/
 int read_cpu_percentage(){
     // get the strings from /proc/stat
     char *firstPass = read_stat_file();
@@ -57,8 +67,11 @@ int read_cpu_percentage(){
     // get rid of the "cpu   " from the string
     char *readOne = (char *)malloc(256);
     get_substring( firstPass , readOne , 5 , firstLength);
-    printf("first pass = %s\n" , firstPass);
-    printf("get_substring =%s\n" , readOne);
+    char *readTwo = (char *)malloc(256);
+    get_substring( secondPass , readTwo , 5 , secondLength);
+    // find the total from each
+    int firstTotal = get_line_total( firstPass );
+
     int percentage = 0;
     return percentage;
 }
