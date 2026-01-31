@@ -147,7 +147,6 @@ sysInfo get_cpu_info(){
 
 char *get_numbers( char *line ){
     int start = 0; // we will zero on both of them as a check
-    char numbers[32];
     int i;
     // grab the start
     for(i = 0; line[i] != '\0'; i++){
@@ -163,6 +162,7 @@ char *get_numbers( char *line ){
     firstString = get_substring( line , firstString , start  , length );
     // get ending string
     int posCount = 0;
+    char *numbers = malloc(length + 1);
     while(isdigit(firstString[posCount])){
         numbers[posCount] = firstString[posCount];
         posCount++;
