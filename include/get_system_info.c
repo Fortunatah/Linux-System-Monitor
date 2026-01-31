@@ -170,6 +170,7 @@ char *get_numbers( char *line){
     }
     numbers[posCount] = '\0';
     printf("numbers = %s\n" , numbers);
+    return numbers;
 }
 
 sysInfo get_mem_info( sysInfo system ){
