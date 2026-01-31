@@ -150,7 +150,7 @@ typedef struct{
 }index;
 
 index get_index( char *line){
-    index Index
+    index Index;
     Index.start = 0; // we will zero on both of them as a check
     // grab the start
     for(int i = 0; line[i] != '\0'; i++){
