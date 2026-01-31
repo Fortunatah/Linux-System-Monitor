@@ -178,7 +178,7 @@ sysInfo get_mem_info( sysInfo system ){
         // get the model of the processor
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
-            index Index = get_index();
+            index Index = get_index( buffer );
             printf("start = %d ,  end = %d\n" , Index.start , Index.end );
 
         }
