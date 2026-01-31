@@ -21,7 +21,7 @@ void menu( sysInfo system ){
     printf("CPU Usage: %c%.2f\n\n" , 37, system.cpuPercentage);
     printf("Memory: ");
     printf("\n\tTotal: %.2f GB\n" , system.memTotal);
-    printf("\tUsed: 6.2 GB\n");
+    printf("\tUsed: %.2f GB\n" , system.memUsage);
     printf("\tFree: %.2f GB\n" , system.memFree);
     printf("\tUsage: 39.7 \n\n");
     printf("Uptime: 03:42:18\n");
