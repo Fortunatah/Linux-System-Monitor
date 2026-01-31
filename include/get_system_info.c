@@ -163,7 +163,7 @@ char *get_numbers( char *line){
     destination = get_substring( line , destination , start  , length );
     // get ending position
     char *pos = strchr(destination , ' ');
-    int end = pos - destination + 2;
+    int end = pos - destination;
     numbers = get_substring( numbers , destination , 0  , end );
     return numbers;
 }
