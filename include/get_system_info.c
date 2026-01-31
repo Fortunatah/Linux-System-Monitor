@@ -37,7 +37,7 @@ char *read_stat_file(){
 int get_line_total( char *pass){
     char c;
     int num;
-    char *add = malloc(32);
+    char add[64];
     add[0] = '\0';
     int total = 0;
     int count = 0;
