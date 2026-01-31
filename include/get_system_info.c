@@ -42,7 +42,7 @@ int get_line_total( char *pass){
     int total = 0;
     int count = 0;
     int i = 0;
-    
+    printf("here\n");
     while((c = pass[i]) != '\0'){
         if((c = pass[i]) == ' '){
             printf("add=%s" , add);
