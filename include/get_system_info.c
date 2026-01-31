@@ -168,7 +168,6 @@ char *get_numbers( char *line ){
         posCount++;
     }
     numbers[posCount] = '\0';
-    printf("numbers = %s!\n" , numbers);
     return numbers;
 }
 
@@ -180,7 +179,8 @@ sysInfo get_mem_info( sysInfo system ){
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
             char *memTotal = get_numbers( buffer );
-            printf("mem=%s\n" , memTotal);
+            (double)strtol( memTotal , NULL , 10);
+            printf("mem total = %.2f\n" , memTotal);
         }
     }
 }
