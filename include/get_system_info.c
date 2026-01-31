@@ -58,6 +58,7 @@ int get_idle( char *pass){
         }
         i++;
     }
+    return total;
 }
 int get_line_total(char *pass) {
     int i = 0;
@@ -104,7 +105,8 @@ int read_cpu_percentage(){
     int firstTotal = get_line_total( readOne );
     int secondTotal = get_line_total( readTwo );
     // get the idle time from each
-    int idelOne = get_idle(readOne);
+    int idleOne = get_idle(readOne);
+    printf("idle =%d" , idleOne);
     int percentage = 0;
     return percentage;
 }
