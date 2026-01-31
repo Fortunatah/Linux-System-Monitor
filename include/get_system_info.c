@@ -161,7 +161,7 @@ char *get_numbers( char *line){
     // cut line from start
     int length = (int) strlen(line);
     firstString = get_substring( line , firstString , start  , length );
-    printf("destination =%s\n" , destination);
+    printf("destination =%s\n" , firstString);
     // get ending string
     int posCount = 0;
     while(isdigit(firstString[posCount])){
