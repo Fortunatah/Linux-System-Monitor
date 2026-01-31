@@ -154,9 +154,9 @@ sysInfo get_mem_info( sysInfo system ){
             int length = (int) strlen(buffer);
             char *pos = strchr(buffer , '1');
             int index = pos - buffer + 2;
-            string = get_substring( buffer , destination , index , length);
+            get_substring( buffer , destination , index , length);
         }
-        printf("memory= %s\n" , string );
+        printf("memory= %s\n" , destination );
         
     }
 }
