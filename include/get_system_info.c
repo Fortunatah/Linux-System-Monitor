@@ -165,7 +165,7 @@ char *get_numbers( char *line){
     // get ending string
     int posCount = 0;
     while(isdigit(firstString[posCount])){
-        numbers[posCount] = line[posCount];
+        numbers[posCount] = firstString[posCount];
         posCount++;
     }
     numbers[posCount] = '\0';
