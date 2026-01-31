@@ -58,7 +58,7 @@ int get_idle( char *pass){
         }
         i++;
     }
-    printf("add=%s\n" , add);
+    printf("add=%d\n" , total);
 }
 int get_line_total(char *pass) {
     int i = 0;
