@@ -146,7 +146,7 @@ sysInfo get_cpu_info(){
 sysInfo get_mem_info( sysInfo system ){
     FILE *file = fopen("/proc/meminfo" , "r");
     char buffer[256];
-    int coresAmount = 0;
+    char string[256];
     while(fgets(buffer, sizeof(buffer) , file)){
         // get the model of the processor
         if(strstr(buffer , "MemTotal")){
@@ -154,9 +154,9 @@ sysInfo get_mem_info( sysInfo system ){
             int length = (int) strlen(buffer);
             char *pos = strchr(buffer , '1');
             int index = pos - buffer + 2;
-            system.memTotal= get_substring( buffer , destination , index , length);
+            string = get_substring( buffer , destination , index , length);
         }
-        printf("memory= %s\n" , system.memTotal);
+        printf("memory= %f\n" , string );
         
     }
 }
