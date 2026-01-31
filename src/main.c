@@ -38,7 +38,7 @@ int main(){
     system = get_mem_info( system );
     while(1){
         clear_screen();
-        menu( system );
+        //menu( system );
         system.cpuPercentage = read_cpu_percentage();
         sleep(3);
     }
