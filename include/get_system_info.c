@@ -143,5 +143,5 @@ sysInfo get_cpu_info(){
 }
 
 sysInfo get_mem_info( sysInfo system ){
-    return sysInfo;
+    return system;
 }
