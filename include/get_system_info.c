@@ -6,6 +6,7 @@ pi*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 #include "get_system_info.h"
 
 
@@ -33,10 +34,30 @@ char *read_stat_file(){
     }
 }
 
+int get_line_total( char *pass){
+    char c;
+    int num;
+    char *add = "";
+    
+    while((c = pass[i]) != '\0'){
+        if((c = pass[i]) == ' '){
+            return 0;
+        }
+    }
+}
 
 int read_cpu_percentage(){
+    // get the strings from /proc/stat
     char *firstPass = read_stat_file();
-    printf("first pass = %s\n", firstPass);
+    sleep(1);
+    char *secondPass = read_stat_file();
+    // get the length of strings
+    int firstLength = (int) strlen(firstPass);
+    int secondLength = (int) strlen(secondPass);
+    // get rid of the "cpu   " from the string
+    char *readOne = (char *)malloc(256);
+    get_substring( firstPass , readOne , 4 , firstLength);
+    printf("get_substring = %s\n" , readOne);
     int percentage = 0;
     return percentage;
 }
