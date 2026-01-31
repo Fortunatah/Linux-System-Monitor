@@ -40,7 +40,6 @@ int get_idle( char *pass){
     int count = 0;
     int total = 0;
     char add[32];   // enough for CPU numbers
-    printf("pass = %s\n" , pass);
     while (pass[i] != '\0') { // go until end of the line
         // if we have a space add to it
         if (pass[i] == ' ') {
@@ -58,7 +57,6 @@ int get_idle( char *pass){
         }
         i++;
     }
-    printf("total=%d\n" , total);
     return total;
 }
 int get_line_total(char *pass) {
@@ -107,7 +105,7 @@ int read_cpu_percentage(){
     int secondTotal = get_line_total( readTwo );
     // get the idle time from each
     int idleOne = get_idle(readOne);
-    printf("idle =%d" , idleOne);
+    printf("idle =%d\n" , idleOne);
     int percentage = 0;
     return percentage;
 }
