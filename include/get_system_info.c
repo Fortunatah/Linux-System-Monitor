@@ -34,15 +34,41 @@ char *read_stat_file(){
     }
 }
 
+int get_idle( char *pass){
+    int i = 0;
+    int spaceCount = 0; // use space to determine where idle is in the string
+    int count = 0;
+    int total = 0;
+    char add[32];   // enough for CPU numbers
+
+    while (pass[i] != '\0') { // go until end of the line
+        // if we have a space add to it
+        if (pass[i] == ' ') {
+            spaceCount++;
+            // if we have 4 or 5 spaces we need to add
+            if(spaceCount == 4 || spaceCount == 5){
+                add[count] = '\0';
+                total += strtol( add , NULL , 10);
+                count = 0;
+            }
+        }
+        // if we have 3 or 4 spaces, we need to start making our string
+        if(spaceCount == 3 || spaceCount == 4){
+            add[count++] = pass[i];
+        }
+    }
+    printf("add=%s\n" , add);
+}
 int get_line_total(char *pass) {
     int i = 0;
     int count = 0;
     int total = 0;
     char add[32];   // enough for CPU numbers
 
-    while (pass[i] != '\0') {
+    while (pass[i] != '\0') { // go until end of the line
         if (pass[i] == ' ') {
             if (count > 0) {
+                // add current num to total
                 add[count] = '\0';
                 total += strtol(add, NULL, 10);
                 count = 0;
@@ -76,7 +102,8 @@ int read_cpu_percentage(){
     get_substring( secondPass , readTwo , 5 , secondLength);
     // find the total from each
     int firstTotal = get_line_total( readOne );
-    printf("first total = %d\n" , firstTotal);
+    int secondTotal = get_line_total( readTwo );
+    // get the idle time from each
 
     int percentage = 0;
     return percentage;
