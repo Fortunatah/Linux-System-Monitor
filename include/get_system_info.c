@@ -54,7 +54,8 @@ int get_line_total( char *pass){
         count++;
         i++;
     }
-    return 1;
+    free(add);
+    return 20;
 }
 int read_cpu_percentage(){
     // get the strings from /proc/stat
