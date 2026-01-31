@@ -152,7 +152,7 @@ typedef struct{
 index get_index( char *line){
     index Index;
     Index.start = 0; // we will zero on both of them as a check
-    char *destination = (char *)malloc(sizeof(buffer));
+    char *destination = (char *)malloc(sizeof(line));
     int i;
     // grab the start
     for(i = 0; line[i] != '\0'; i++){
