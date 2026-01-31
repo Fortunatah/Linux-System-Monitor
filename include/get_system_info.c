@@ -152,9 +152,9 @@ sysInfo get_mem_info( sysInfo system ){
             char *destination = (char *)malloc(sizeof(buffer));
             int length = (int) strlen(buffer);
             char *pos = strchr(buffer , '1');
-            int index = pos - buffer + 2;
+            int index = pos - buffer - 2 ;
             get_substring( buffer , destination , index , length);
-            printf("memory= %s\n" , destination );
+            printf("memory=%s\n" , destination );
         }
         
     }
