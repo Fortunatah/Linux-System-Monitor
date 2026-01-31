@@ -104,7 +104,7 @@ int read_cpu_percentage(){
     int firstTotal = get_line_total( readOne );
     int secondTotal = get_line_total( readTwo );
     // get the idle time from each
-
+    int idelOne = get_idle(readOne);
     int percentage = 0;
     return percentage;
 }
