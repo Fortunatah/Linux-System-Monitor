@@ -152,6 +152,7 @@ typedef struct{
 index get_index( char *line){
     index Index;
     Index.start = 0; // we will zero on both of them as a check
+    char *destination = (char *)malloc(sizeof(buffer));
     int i;
     // grab the start
     for(i = 0; line[i] != '\0'; i++){
@@ -161,13 +162,11 @@ index get_index( char *line){
             break;
         }
     }
-    // start  from the first digit
-    for( i = Index.start; line[i] != '\0' ; i++){
-        if(line[i] == ' '){
-            Index.end = i - 3;
-            break;
-        }
-    }
+
+    int length = (int) strlen(line);
+    get_substring( line , destination , Index.start , length )
+    printf("substring = %s\n" , destination);
+    
     return Index;
 }
 
@@ -179,9 +178,6 @@ sysInfo get_mem_info( sysInfo system ){
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
             index Index = get_index( buffer );
-            get_substring( buffer , destination , Index.start , Index.end);
-            printf("string=%s\n" , destination);
         }
-        
     }
 }
