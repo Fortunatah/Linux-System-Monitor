@@ -161,10 +161,12 @@ char *get_numbers( char *line){
     // cut line from start
     int length = (int) strlen(line);
     destination = get_substring( line , destination , start  , length );
+    printf("destination = %s\n" , destination);
     // get ending position
     char *pos = strchr(destination , ' ');
     int end = pos - destination;
     numbers = get_substring( numbers , destination , 0  , end );
+    printf("numbers= %s\n" , numbers);
     return numbers;
 }
 
