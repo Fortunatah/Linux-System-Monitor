@@ -152,8 +152,9 @@ typedef struct{
 index get_index( char *line){
     index Index;
     Index.start = 0; // we will zero on both of them as a check
+    int i;
     // grab the start
-    for(int i = 0; line[i] != '\0'; i++){
+    for(i = 0; line[i] != '\0'; i++){
         // find the first digit
         if(isdigit(line[i])){
             Index.start = i;
@@ -178,7 +179,7 @@ sysInfo get_mem_info( sysInfo system ){
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
             index Index = get_index();
-            printf("start = %d ,  end = %d\n" , Index.start , Index.end; );
+            printf("start = %d ,  end = %d\n" , Index.start , Index.end );
 
         }
         
