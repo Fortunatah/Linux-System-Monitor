@@ -186,6 +186,17 @@ sysInfo get_mem_info( sysInfo system ){
             double memFreeNum= (double)strtol( memFree , NULL , 10);
             system.memFree = memFreeNum / (1024.0 * 1024.0);
         }
+        if(strstr(buffer , "MemAvailable")){
+            char *memAvailable = get_numbers( buffer );
+            double memAvailableNum= (double)strtol( memAvailable , NULL , 10);
+            memAvailableNum = memAvailableNum / (1024.0 * 1024.0);
+            // going to substract this from total two to get total usage
+            if(system.memTotal > 0){
+                system.memUsage = system.memTotal - memAvailableNum;
+            }else{
+                system.memUsage = 0.0;
+            }
+        }
     }
     return system;
 }
