@@ -43,6 +43,7 @@ int get_line_total( char *pass){
     int count = 0;
     int i = 0;
     while((c = pass[i]) != '\0'){
+        printf("here\n");
         if((c = pass[i]) == ' '){
             printf("add=%s" , add);
             //num = strol(add , NULL , 10 ); // conver to int
