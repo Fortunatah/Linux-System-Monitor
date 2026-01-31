@@ -6,6 +6,7 @@ void clear_screen();
 typedef struct{
     char *model;
     int cores;
+    double percentage;
 }cpuInfo;
 
 cpuInfo get_cpu_info();

@@ -18,7 +18,7 @@ void menu( cpuInfo cpu ){
     printf("%s\n" , LINE);
     printf("CPU: %s\n" , cpu.model);
     printf("Cores: %d\n" , cpu.cores);
-    printf("CPU Usage: 12.4\n\n");
+    printf("CPU Usage: %c%.2f\n\n" , 37, cpu.percentage);
     printf("Memory: ");
     printf("\n\tTotal: 15.6 GB\n");
     printf("\tUsed: 6.2 GB\n");
@@ -34,10 +34,10 @@ void menu( cpuInfo cpu ){
 
 int main(){
     cpuInfo cpu = get_cpu_info();
-    double percentage = read_cpu_percentage();
     while(1){
-        // clear_screen();
-        //menu( cpu );
+        clear_screen();
+        menu( cpu );
+        cpu.percentage = read_cpu_percentage();
         sleep(3);
     }
     return 0;
