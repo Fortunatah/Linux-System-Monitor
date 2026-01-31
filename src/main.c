@@ -39,7 +39,7 @@ int main(){
     while(1){
         clear_screen();
         menu( cpu );
-        system.percentage = read_cpu_percentage();
+        system.cpuPercentage = read_cpu_percentage();
         sleep(3);
     }
     return 0;
