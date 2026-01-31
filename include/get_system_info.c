@@ -144,30 +144,28 @@ sysInfo get_cpu_info(){
     return tempCPU;
 }
 
-typedef struct{
-    int start;
-    int end;
-}index;
 
-index get_index( char *line){
-    index Index;
-    Index.start = 0; // we will zero on both of them as a check
+char *get_numbers( char *line){
+    int start = 0; // we will zero on both of them as a check
     char *destination = (char *)malloc(256);
+    char *numbers = (char *)malloc(256);
     int i;
     // grab the start
     for(i = 0; line[i] != '\0'; i++){
         // find the first digit
         if(isdigit(line[i])){
-            Index.start = i;
+            start = i;
             break;
         }
     }
-
+    // cut line from start
     int length = (int) strlen(line);
-    get_substring( line , destination , Index.start , length );
-    printf("substring = %s\n" , destination);
-    
-    return Index;
+    destination = get_substring( line , destination , start  , length );
+    // get ending position
+    char *pos = strchr(destination , ' ');
+    int end = pos - destination + 2;
+    numbers = get_substring( numbers , destination , 0  , end );
+    return numbers;
 }
 
 sysInfo get_mem_info( sysInfo system ){
@@ -177,7 +175,7 @@ sysInfo get_mem_info( sysInfo system ){
         // get the model of the processor
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
-            index Index = get_index( buffer );
+            char *memTotal = get_numbers( buffer );
         }
     }
 }
