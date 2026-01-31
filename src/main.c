@@ -16,8 +16,8 @@ All statements will run through this
 void menu( sysInfo system ){
     printf("\n Linux System Monitor\n");
     printf("%s\n" , LINE);
-    printf("CPU: %s\n" , system.model);
-    printf("Cores: %d\n" , system.cores);
+    printf("CPU: %s\n" , system.cpuModel);
+    printf("Cores: %d\n" , system.cpuCores);
     printf("CPU Usage: %c%.2f\n\n" , 37, system.cpuPercentage);
     printf("Memory: ");
     printf("\n\tTotal: 15.6 GB\n");
@@ -34,7 +34,7 @@ void menu( sysInfo system ){
 
 int main(){
     sysInfo system = get_cpu_info();
-    system.percentage = read_cpu_percentage();
+    system.cpuPercentage = read_cpu_percentage();
     system = get_mem_info( system );
     while(1){
         clear_screen();
