@@ -179,8 +179,8 @@ sysInfo get_mem_info( sysInfo system ){
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
             char *memTotal = get_numbers( buffer );
-            (double)strtol( memTotal , NULL , 10);
-            printf("mem total = %.2f\n" , memTotal);
+            double memTotalNum= (double)strtol( memTotal , NULL , 10);
+            printf("mem total = %.2f\n" , memTotalNum);
         }
     }
 }
