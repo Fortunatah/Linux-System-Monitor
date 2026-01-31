@@ -193,8 +193,10 @@ sysInfo get_mem_info( sysInfo system ){
             // going to substract this from total two to get total usage
             if(system.memTotal > 0){
                 system.memUsage = system.memTotal - memAvailableNum;
+                system.memPercent = (system.memUsage / system.memTotal) * 100.00;
             }else{
                 system.memUsage = 0.0;
+                system.memPercent = 0.0;
             }
         }
     }

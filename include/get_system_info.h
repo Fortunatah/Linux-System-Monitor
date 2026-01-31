@@ -10,6 +10,7 @@ typedef struct{
     double memTotal;
     double memFree;
     double memUsage;
+    double memPercent;
 }sysInfo;
 
 sysInfo get_cpu_info();
