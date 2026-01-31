@@ -33,7 +33,7 @@ char *read_stat_file(){
         }
     }
 }
-
+/*
 int get_line_total( char *pass){
     char c;
     int num;
@@ -45,7 +45,7 @@ int get_line_total( char *pass){
         }
     }
 }
-
+*/
 int read_cpu_percentage(){
     // get the strings from /proc/stat
     char *firstPass = read_stat_file();
