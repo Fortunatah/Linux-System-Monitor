@@ -177,11 +177,16 @@ sysInfo get_mem_info( sysInfo system ){
     while(fgets(buffer, sizeof(buffer) , file)){
         // get the model of the processor
         if(strstr(buffer , "MemTotal")){
-            char *destination = (char *)malloc(sizeof(buffer));
             char *memTotal = get_numbers( buffer );
             double memTotalNum= (double)strtol( memTotal , NULL , 10);
             system.memTotal = memTotalNum / 1000000.0;
             printf("mem total = %.2f\n" , system.memTotal);
+        }
+        if(strstr(buffer , "MemFree")){
+            char *memFree = get_numbers( buffer );
+            double memFreeNum= (double)strtol( memFree , NULL , 10);
+            system.memFree = memFreeNum / 1000000.0;
+            printf("mem free = %.2f\n" , memFreeNum.memTotal);
         }
     }
 }
