@@ -179,8 +179,8 @@ sysInfo get_mem_info( sysInfo system ){
         if(strstr(buffer , "MemTotal")){
             char *destination = (char *)malloc(sizeof(buffer));
             index Index = get_index( buffer );
-            printf("start = %d ,  end = %d\n" , Index.start , Index.end );
-
+            get_substring( buffer , destination , Index.start , Index.end);
+            printf("string=%s\n" , destination);
         }
         
     }
