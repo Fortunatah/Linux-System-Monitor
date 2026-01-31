@@ -4,12 +4,15 @@
 void clear_screen();
 
 typedef struct{
-    char *model;
-    int cores;
-    double percentage;
-}cpuInfo;
+    char *cpuModel;
+    int cpuCores;
+    double cpuPercentage;
+    double memTotal;
+    double memFree;
+}sysInfo;
 
-cpuInfo get_cpu_info();
+sysInfo get_cpu_info();
+sysInfo get_mem_info( sysInfo system );
 double read_cpu_percentage();
 
 #endif

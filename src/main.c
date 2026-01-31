@@ -13,12 +13,12 @@ All statements will run through this
 
 #define LINE "==============================\n"
 
-void menu( cpuInfo cpu ){
+void menu( sysInfo system ){
     printf("\n Linux System Monitor\n");
     printf("%s\n" , LINE);
-    printf("CPU: %s\n" , cpu.model);
-    printf("Cores: %d\n" , cpu.cores);
-    printf("CPU Usage: %c%.2f\n\n" , 37, cpu.percentage);
+    printf("CPU: %s\n" , system.model);
+    printf("Cores: %d\n" , system.cores);
+    printf("CPU Usage: %c%.2f\n\n" , 37, system.cpuPercentage);
     printf("Memory: ");
     printf("\n\tTotal: 15.6 GB\n");
     printf("\tUsed: 6.2 GB\n");
@@ -33,11 +33,13 @@ void menu( cpuInfo cpu ){
 
 
 int main(){
-    cpuInfo cpu = get_cpu_info();
+    sysInfo system = get_cpu_info();
+    system.percentage = read_cpu_percentage();
+    system = get_mem_info( system );
     while(1){
         clear_screen();
         menu( cpu );
-        cpu.percentage = read_cpu_percentage();
+        system.percentage = read_cpu_percentage();
         sleep(3);
     }
     return 0;

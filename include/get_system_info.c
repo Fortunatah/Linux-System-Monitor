@@ -113,8 +113,8 @@ double read_cpu_percentage(){
     return percentage;
 }
 
-cpuInfo get_cpu_info(){
-    cpuInfo tempCPU;
+sysInfo get_cpu_info(){
+    sysInfo tempCPU;
     FILE *file = fopen("/proc/cpuinfo" , "r");
     char buffer[256];
     int coresAmount = 0;
@@ -125,7 +125,7 @@ cpuInfo get_cpu_info(){
             int length = (int) strlen(buffer);
             char *pos = strchr(buffer , ':');
             int index = pos - buffer + 2;
-            tempCPU.model= get_substring( buffer , destination , index , length);
+            tempCPU.cpuModel= get_substring( buffer , destination , index , length);
         }
         // see how many cores there are
         if(strstr(buffer , "processor")){
@@ -135,9 +135,13 @@ cpuInfo get_cpu_info(){
     }
     // if cores ammount is greater than zero
     if( coresAmount > 0 ){
-        tempCPU.cores = coresAmount;
+        tempCPU.cpuCores = coresAmount;
     }
 
     fclose(file);
     return tempCPU;
+}
+
+sysInfo get_mem_info( sysInfo system ){
+    return sysInfo;
 }
