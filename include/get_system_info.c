@@ -57,6 +57,7 @@ int read_cpu_percentage(){
     // get rid of the "cpu   " from the string
     char *readOne = (char *)malloc(256);
     get_substring( firstPass , readOne , 4 , firstLength);
+    printf("first pass = %s\n" , firstPass);
     printf("get_substring = %s\n" , readOne);
     int percentage = 0;
     return percentage;
