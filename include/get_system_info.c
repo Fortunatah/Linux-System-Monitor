@@ -180,7 +180,8 @@ sysInfo get_mem_info( sysInfo system ){
             char *destination = (char *)malloc(sizeof(buffer));
             char *memTotal = get_numbers( buffer );
             double memTotalNum= (double)strtol( memTotal , NULL , 10);
-            printf("mem total = %.2f\n" , memTotalNum);
+            system.memTotal = memTotalNum / 1000000.0;
+            printf("mem total = %.2f\n" , system.memTotal);
         }
     }
 }
