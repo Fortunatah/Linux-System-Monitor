@@ -148,7 +148,6 @@ sysInfo get_cpu_info(){
 char *get_numbers( char *line){
     int start = 0; // we will zero on both of them as a check
     char *destination = (char *)malloc(256);
-    char *numbers = (char *)malloc(256);
     int i;
     // grab the start
     for(i = 0; line[i] != '\0'; i++){
@@ -166,7 +165,7 @@ char *get_numbers( char *line){
     char *pos = strchr(destination , ' ');
     if(pos == NULL) printf("null\n");
     int end = pos - destination;
-    numbers = get_substring( numbers , destination , 0  , end );
+    char *numbers = get_substring( numbers , destination , 0  , end );
     printf("numbers= %s\n" , numbers);
     return numbers;
 }
