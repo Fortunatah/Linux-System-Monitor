@@ -37,10 +37,11 @@ char *read_stat_file(){
 int get_line_total( char *pass){
     char c;
     int num;
-    char *add = '\0';
+    char *add = malloc(32);
+    add[0] = '\0';
     int total = 0;
     int count = 0;
-    int i;
+    int i = 0;
     
     while((c = pass[i]) != '\0'){
         if((c = pass[i]) == ' '){
@@ -48,13 +49,12 @@ int get_line_total( char *pass){
             //num = strol(add , NULL , 10 ); // conver to int
             //total = total +  num;
             count = 0;
-            add = '\0';
+            add[0] = '\0';
         }
         add[count] = pass[i];
         count++;
         i++;
     }
-    free(add);
     return 20;
 }
 int read_cpu_percentage(){
@@ -71,7 +71,7 @@ int read_cpu_percentage(){
     char *readTwo = (char *)malloc(256);
     get_substring( secondPass , readTwo , 5 , secondLength);
     // find the total from each
-    int firstTotal = get_line_total( firstPass );
+    int firstTotal = get_line_total( readOne );
 
     int percentage = 0;
     return percentage;
