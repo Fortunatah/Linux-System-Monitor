@@ -164,7 +164,7 @@ index get_index( char *line){
     }
 
     int length = (int) strlen(line);
-    get_substring( line , destination , Index.start , length )
+    get_substring( line , destination , Index.start , length );
     printf("substring = %s\n" , destination);
     
     return Index;
