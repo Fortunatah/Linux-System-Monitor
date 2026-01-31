@@ -109,7 +109,7 @@ double read_cpu_percentage(){
     // do our calculations
     double totalDiff = (double) secondTotal - firstTotal;
     double idleDiff = (double) idleTwo - idleOne;
-    double percentage = totalDiff - idleDiff / totalDiff;
+    double percentage = ((totalDiff - idleDiff) / totalDiff) * 100.0;
     printf("percentage = %f\n" , percentage);
     return percentage;
 }
