@@ -34,27 +34,32 @@ char *read_stat_file(){
     }
 }
 
-int get_line_total( char *pass){
-    char c;
-    int num;
-    char add[64];
-    add[0] = '\0';
-    int total = 0;
-    int count = 0;
+int get_line_total(char *pass) {
     int i = 0;
-    while((c = pass[i]) != '\0'){
-        if((c = pass[i]) == ' '){
-            printf("add=%s" , add);
-            //num = strol(add , NULL , 10 ); // conver to int
-            //total = total +  num;
-            count = 0;
-            add[0] = '\0';
+    int count = 0;
+    int total = 0;
+    char add[32];   // enough for CPU numbers
+
+    while (pass[i] != '\0') {
+        if (pass[i] == ' ') {
+            if (count > 0) {
+                add[count] = '\0';
+                total += strtol(add, NULL, 10);
+                count = 0;
+            }
+        } else {
+            add[count++] = pass[i];
         }
-        add[count] = pass[i];
-        count++;
         i++;
     }
-    return 20;
+
+    // last number
+    if (count > 0) {
+        add[count] = '\0';
+        total += strtol(add, NULL, 10);
+    }
+
+    return total;
 }
 int read_cpu_percentage(){
     // get the strings from /proc/stat
@@ -71,6 +76,7 @@ int read_cpu_percentage(){
     get_substring( secondPass , readTwo , 5 , secondLength);
     // find the total from each
     int firstTotal = get_line_total( readOne );
+    printf("first total = %d\n" , firstTotal);
 
     int percentage = 0;
     return percentage;
