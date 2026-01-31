@@ -18,12 +18,12 @@ void menu( sysInfo system ){
     printf("%s\n" , LINE);
     printf("CPU: %s\n" , system.cpuModel);
     printf("Cores: %d\n" , system.cpuCores);
-    printf("CPU Usage: %c%.2f\n\n" , 37, system.cpuPercentage);
+    printf("CPU Usage: %.2f%c\n\n" ,  system.cpuPercentage , 37);
     printf("Memory: ");
     printf("\n\tTotal: %.2f GB\n" , system.memTotal);
     printf("\tUsed: %.2f GB\n" , system.memUsage);
     printf("\tFree: %.2f GB\n" , system.memFree);
-    printf("\tUsage: %c%.2f \n\n" , 37 , system.memPercent);
+    printf("\tUsage: %.2f%c \n\n" , system.memPercent , 37);
     printf("Uptime: 03:42:18\n");
     printf("Processes:\n");
     printf("\tTotal: 312\n");
