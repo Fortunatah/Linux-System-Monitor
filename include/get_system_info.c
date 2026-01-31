@@ -168,7 +168,7 @@ char *get_numbers( char *line){
         numbers[posCount] = line[posCount];
         posCount++;
     }
-    numbers[posCount] = '\0'
+    numbers[posCount] = '\0';
     printf("numbers = %s\n" , numbers);
 }
 
