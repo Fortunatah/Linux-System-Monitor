@@ -164,7 +164,7 @@ index get_index( char *line){
     // start  from the first digit
     for( i = Index.start; line[i] != '\0' ; i++){
         if(line[i] == ' '){
-            Index.end = i;
+            Index.end = i - 1;
             break;
         }
     }
