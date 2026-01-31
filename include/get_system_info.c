@@ -186,7 +186,7 @@ sysInfo get_mem_info( sysInfo system ){
             char *memFree = get_numbers( buffer );
             double memFreeNum= (double)strtol( memFree , NULL , 10);
             system.memFree = memFreeNum / 1000000.0;
-            printf("mem free = %.2f\n" , memFreeNum.memTotal);
+            printf("mem free = %.2f\n" , system.memFree);
         }
     }
 }
