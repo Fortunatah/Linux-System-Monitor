@@ -87,7 +87,7 @@ int get_line_total(char *pass) {
 
     return total;
 }
-int read_cpu_percentage(){
+double read_cpu_percentage(){
     // get the strings from /proc/stat
     char *firstPass = read_stat_file();
     sleep(1);
@@ -104,9 +104,13 @@ int read_cpu_percentage(){
     int firstTotal = get_line_total( readOne );
     int secondTotal = get_line_total( readTwo );
     // get the idle time from each
-    int idleOne = get_idle(readOne);
-    printf("idle =%d\n" , idleOne);
-    int percentage = 0;
+    int idleOne = get_idle( readOne );
+    int idleTwo = get_idle( readTwo );
+    // do our calculations
+    double totalDiff = (double) secondTotal - firstTotal;
+    double idleDiff = (double) idleTwo - idleOne;
+    double percentage = totalDiff - idleDiff / totalDiff;
+    printf("percentage = %f\n" , percentage);
     return percentage;
 }
 

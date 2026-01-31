@@ -34,7 +34,7 @@ void menu( cpuInfo cpu ){
 
 int main(){
     cpuInfo cpu = get_cpu_info();
-    int percentage = read_cpu_percentage();
+    double percentage = read_cpu_percentage();
     while(1){
         // clear_screen();
         //menu( cpu );
