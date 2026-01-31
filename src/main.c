@@ -20,9 +20,9 @@ void menu( sysInfo system ){
     printf("Cores: %d\n" , system.cpuCores);
     printf("CPU Usage: %c%.2f\n\n" , 37, system.cpuPercentage);
     printf("Memory: ");
-    printf("\n\tTotal: 15.6 GB\n");
+    printf("\n\tTotal: %.2f GB\n" , system.memTotal);
     printf("\tUsed: 6.2 GB\n");
-    printf("\tFree: 9.4 GB\n");
+    printf("\tFree: %.2f GB\n" , system.memFree);
     printf("\tUsage: 39.7 \n\n");
     printf("Uptime: 03:42:18\n");
     printf("Processes:\n");
@@ -37,8 +37,8 @@ int main(){
     system.cpuPercentage = read_cpu_percentage();
     system = get_mem_info( system );
     while(1){
-         // clear_screen();
-        //menu( system );
+        clear_screen();
+        menu( system );
         system.cpuPercentage = read_cpu_percentage();
         sleep(3);
     }

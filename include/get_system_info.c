@@ -180,13 +180,11 @@ sysInfo get_mem_info( sysInfo system ){
             char *memTotal = get_numbers( buffer );
             double memTotalNum= (double)strtol( memTotal , NULL , 10);
             system.memTotal = memTotalNum / 1000000.0;
-            printf("mem total = %.2f\n" , system.memTotal);
         }
         if(strstr(buffer , "MemFree")){
             char *memFree = get_numbers( buffer );
             double memFreeNum= (double)strtol( memFree , NULL , 10);
             system.memFree = memFreeNum / (1024.0 * 1024.0);
-            printf("mem free = %.2f\n" , system.memFree);
         }
     }
     return system;
