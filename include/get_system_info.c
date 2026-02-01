@@ -263,4 +263,5 @@ sysInfo get_processes( sysInfo system ){
     char totalProcesses[24];
     get_substring( subLine , totalProcesses , 2 , 5);
     system.totalProcesses = (int)strtol( totalProcesses , NULL , 10);
+    return system;
 }
