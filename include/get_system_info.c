@@ -209,6 +209,7 @@ char *get_uptime(){
     int count = 0;
     while ((character = fgetc(file)) != ' ') {
         uptimeNumber[count++] = character;
+        printf("number = %c" , character);
     }
     uptimeNumber[count] = '\0';
     printf("num = %s" ,uptimeNumber );
