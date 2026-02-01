@@ -11,10 +11,12 @@ typedef struct{
     double memFree;
     double memUsage;
     double memPercent;
+    char *upTime;
 }sysInfo;
 
 sysInfo get_cpu_info();
 sysInfo get_mem_info( sysInfo system );
+char *get_uptime();
 double read_cpu_percentage();
 
 #endif

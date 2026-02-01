@@ -38,8 +38,9 @@ int main(){
     system = get_mem_info( system );
     while(1){
         clear_screen();
-        menu( system );
+        //menu( system );
         system.cpuPercentage = read_cpu_percentage();
+        system.upTime = get_uptime();
         sleep(3);
     }
     return 0;
