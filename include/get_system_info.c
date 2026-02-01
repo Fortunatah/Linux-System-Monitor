@@ -203,16 +203,24 @@ sysInfo get_mem_info( sysInfo system ){
     return system;
 }
 
-char *get_time_string( double uptime ){
-    // divide to see total minutes
-    long days    = uptime / 86400.0;
-    long hours   = (uptime % 86400.0) / 3600.0;
-    long minutes = (uptime % 3600.0) / 60.0;
-    long seconds = uptime % 60.0;
-    printf("Up: %ldd %ldh %ldm %lds\n",
-       days, hours, minutes, seconds);
-    return "jfgfg";
+char *get_time_string(double uptime) {
+    long total = (long)uptime;
+
+    long days    = total / 86400;
+    long hours   = (total % 86400) / 3600;
+    long minutes = (total % 3600) / 60;
+    long seconds = total % 60;
+
+    char *buf = malloc(64);
+    if (!buf) return NULL;
+
+    snprintf(buf, 64,
+             "Up: %ldd %ldh %ldm %lds",
+             days, hours, minutes, seconds);
+
+    return buf;  // caller MUST free()
 }
+
 char *get_uptime(){
     FILE *file = fopen( "/proc/uptime" , "r" );
     char buffer[256];
@@ -230,5 +238,6 @@ char *get_uptime(){
     }
     double uptimeDouble = strtod( uptimeNumber , NULL);
     char *uptime = get_time_string( uptimeDouble ); 
-    return "hello";
+    printf("%s" , uptime);
+    return "Hello";
 }
