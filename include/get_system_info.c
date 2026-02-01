@@ -202,6 +202,14 @@ sysInfo get_mem_info( sysInfo system ){
     }
     return system;
 }
+
+char *get_time_string( double uptime ){
+    // divide to see total minutes
+    if( ( uptime  / 60.0 ) > 0.0 ){
+        printf("here");
+    }
+    return "Hello";
+}
 char *get_uptime(){
     FILE *file = fopen( "/proc/uptime" , "r" );
     char buffer[256];
@@ -218,8 +226,6 @@ char *get_uptime(){
         }
     }
     double uptimeDouble = strtod( uptimeNumber , NULL);
-    double divideUptime = uptimeDouble / 60.0;
-    printf("double = %.2f\n" , divideUptime);
-
-    return "Hello";
+    char *uptime = get_time_string( uptimeDouble ); 
+    return "hello";
 }
