@@ -215,7 +215,7 @@ char *get_time_string(double uptime) {
     if (!buf) return NULL;
 
     snprintf(buf, 64,
-             "Up: %ldd %ldh %ldm %lds",
+             "%ldd %ldh %ldm %lds",
              days, hours, minutes, seconds);
 
     printf("buf= %s\n" , buf);
@@ -238,7 +238,8 @@ char *get_uptime(){
         }
     }
     double uptimeDouble = strtod( uptimeNumber , NULL);
-    char *uptime = get_time_string( uptimeDouble ); 
-    printf("%s" , uptime);
+    char *uptime_str = get_time_string(uptimeDouble);
+    printf("%s\n", uptime_str);
+    free(uptime_str);
     return "Hello";
 }
