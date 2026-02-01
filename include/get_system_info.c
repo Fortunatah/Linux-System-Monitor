@@ -256,8 +256,10 @@ sysInfo get_processes( sysInfo system ){
         }
     }
     // grab our integers and we are good
-    char current[12] = get_substring( subLine , current , 0 , 1);
+    char current[12];
+    get_substring( subLine , current , 0 , 1);
     printf("current = %s\n" , current);
-    char total[24] = get_substring( subLine , current , 2 , 5);
+    char total[24];
+    get_substring( subLine , total , 2 , 5);
     printf("total = %s\n" , total);
 }
