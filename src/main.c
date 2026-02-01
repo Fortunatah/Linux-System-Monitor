@@ -36,11 +36,11 @@ int main(){
     sysInfo system = get_cpu_info();
     system.cpuPercentage = read_cpu_percentage();
     system = get_mem_info( system );
+    system.upTime = get_uptime();
     while(1){
         //clear_screen();
         //menu( system );
         system.cpuPercentage = read_cpu_percentage();
-        system.upTime = get_uptime();
         sleep(3);
     }
     return 0;
