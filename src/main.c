@@ -37,9 +37,10 @@ int main(){
     system.cpuPercentage = read_cpu_percentage();
     system = get_mem_info( system );
     system.upTime = get_uptime();
+    system  = get_processes( system );
     while(1){
-        clear_screen();
-        menu( system );
+        //clear_screen();
+        //menu( system );
         system.cpuPercentage = read_cpu_percentage();
         system.upTime = get_uptime();
         sleep(3);

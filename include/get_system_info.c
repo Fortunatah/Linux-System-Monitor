@@ -240,3 +240,19 @@ char *get_uptime(){
     char *uptime_str = get_time_string(uptimeDouble);
     return uptime_str;
 }
+
+sysInfo get_processes( sysInfo system ){
+    FILE *file = fopen( "/proc/loadavg" , "r" );
+    char buffer[256];
+    char subLine[64];
+
+    // cycle through file until / is found, that is our processes
+    while(fgets(buffer, sizeof(buffer) , file)){
+        for(int i = 0; buffer[i] != '\0'; i++){
+            if(buffer[i] == '\\'){
+                subLine = get_substring( buffer , subLine , i - 1 , i + 4);
+                printf("string=%s!\n" , subLine);
+            }
+        }
+    }
+}
