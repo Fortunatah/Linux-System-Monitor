@@ -218,6 +218,7 @@ char *get_time_string(double uptime) {
              "Up: %ldd %ldh %ldm %lds",
              days, hours, minutes, seconds);
 
+    printf("buf= %s\n" , buf);
     return buf;  // caller MUST free()
 }
 
