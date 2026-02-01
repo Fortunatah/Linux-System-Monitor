@@ -250,7 +250,7 @@ sysInfo get_processes( sysInfo system ){
     while(fgets(buffer, sizeof(buffer) , file)){
         for(int i = 0; buffer[i] != '\0'; i++){
             if(buffer[i] == '/'){
-                get_substring( buffer , subLine , i - 1 , i + 4);
+                get_substring( buffer , subLine , i - 1 , i + 2);
                 printf("string=%s!\n" , subLine);
             }
         }
