@@ -239,7 +239,5 @@ char *get_uptime(){
     }
     double uptimeDouble = strtod( uptimeNumber , NULL);
     char *uptime_str = get_time_string(uptimeDouble);
-    printf("%s\n", uptime_str);
-    free(uptime_str);
-    return "Hello";
+    return uptime_str;
 }
