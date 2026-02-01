@@ -204,18 +204,22 @@ sysInfo get_mem_info( sysInfo system ){
 }
 char *get_uptime(){
     FILE *file = fopen( "/proc/uptime" , "r" );
-    int character;
     char buffer[256];
     char uptimeNumber[64];
-    //int count = 0;
+
+    // cycle through file untilspace is found that is our uptime number
     while(fgets(buffer, sizeof(buffer) , file)){
         for(int i = 0; buffer[i] != '\0'; i++){
             if(buffer[i] == ' '){
+                uptimeNumber[i] = '\0';
                 break;
             }
             uptimeNumber[i] = buffer[i];
         }
     }
-    printf("string = %s\n" , uptimeNumber);
+    double uptimeDouble = strtod( uptimeNumber , NULL);
+    double divideUptime = uptimeDouble / 60.0;
+    printf("double = %.2f\n" , divideUptime);
+
     return "Hello";
 }
