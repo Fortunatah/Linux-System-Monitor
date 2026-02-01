@@ -247,20 +247,11 @@ sysInfo get_processes( sysInfo system ){
     char subLine[64];
 
     // cycle through file until / is found, that is our processes
-
-    while (fgets(buffer, sizeof(buffer), file)) {
-        int prevSlashIndex = -1;  // initialize at start of line
-        for (int i = 0; buffer[i] != '\0'; i++) {
-            if (buffer[i] == '/') {
-                int start_index = prevSlashIndex + 1;   // previous '/' + 1
-                int length = i - start_index;           // length up to current '/'
-                
-                if (length > 0) {   // skip empty strings (like leading '/')
-                    get_substring(buffer, subLine, start_index, length);
-                    printf("string = %s\n", subLine);
-                }
-                
-                prevSlashIndex = i;  // IMPORTANT: update previous slash
+    while(fgets(buffer, sizeof(buffer) , file)){
+        for(int i = 0; buffer[i] != '\0'; i++){
+            if(buffer[i] == '/'){
+                get_substring( buffer , subLine , i - 20, i  - 1);
+                printf("string=%s!\n" , subLine);
             }
         }
     }
