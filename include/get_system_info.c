@@ -255,11 +255,12 @@ sysInfo get_processes( sysInfo system ){
             }
         }
     }
-    // grab our integers and we are good
-    char current[12];
-    get_substring( subLine , current , 0 , 1);
-    printf("current = %s\n" , current);
-    char total[24];
-    get_substring( subLine , total , 2 , 5);
-    printf("total = %s\n" , total);
+    // grab our integers and set them to system
+    char currentProcesses[12];
+    get_substring( subLine , currentProcesses , 0 , 1);
+    system.runningProcesses = currentProcesses;
+    
+    char totalProcesses[24];
+    get_substring( subLine , totalProcesses , 2 , 5);
+    system.totalProcesses = totalProcesses;
 }

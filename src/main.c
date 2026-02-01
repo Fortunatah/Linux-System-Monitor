@@ -26,8 +26,8 @@ void menu( sysInfo system ){
     printf("\tUsage: %.2f%c \n\n" , system.memPercent , 37);
     printf("Uptime: %s\n" , system.upTime);
     printf("Processes:\n");
-    printf("\tTotal: 312\n");
-    printf("\tRunning: 4");
+    printf("\tTotal: %d\n" , system.totalProcesses);
+    printf("\tRunning: %d\n" , system.runningProcesses);
     printf("\n%s\n" , LINE);
 }
 
@@ -39,10 +39,11 @@ int main(){
     system.upTime = get_uptime();
     system  = get_processes( system );
     while(1){
-        //clear_screen();
-        //menu( system );
+        clear_screen();
+        menu( system );
         system.cpuPercentage = read_cpu_percentage();
         system.upTime = get_uptime();
+        system  = get_processes( system );
         sleep(3);
     }
     return 0;
