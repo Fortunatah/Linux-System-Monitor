@@ -205,11 +205,17 @@ sysInfo get_mem_info( sysInfo system ){
 char *get_uptime(){
     FILE *file = fopen( "/proc/uptime" , "r" );
     int character;
+    char buffer[256];
     char uptimeNumber[64];
-    int count = 0;
-    while(isdigit(character = fgetc(file))) {
-        printf("%c", character);
+    //int count = 0;
+    while(fgets(buffer, sizeof(buffer) , file)){
+        for(int i = 0; buffer[i] != '\0'; i++){
+            if(buffer[i] == ' '){
+                break;
+            }
+            uptimeNumber[i] = buffer[i];
+        }
     }
-
+    printf("string = %s\n" , uptimeNumber);
     return "Hello";
 }
