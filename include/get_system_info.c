@@ -250,8 +250,10 @@ sysInfo get_processes( sysInfo system ){
     while(fgets(buffer, sizeof(buffer) , file)){
         for(int i = 0; buffer[i] != '\0'; i++){
             if(buffer[i] == '/'){
-                get_substring( buffer , subLine , i - 20, i  - 1);
-                printf("string=%s!\n" , subLine);
+                int start_index = prevSlashIndex + 1;   // previous '/' + 1
+                int length = i - start_index;           // up to current '/'
+                get_substring(buffer, subLine, start_index, length);
+                printf("string = %s\n", subLine);
             }
         }
     }
