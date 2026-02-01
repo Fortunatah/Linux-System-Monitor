@@ -205,10 +205,10 @@ sysInfo get_mem_info( sysInfo system ){
 
 char *get_time_string( double uptime ){
     // divide to see total minutes
-    long days    = uptime / 86400;
-    long hours   = (uptime % 86400) / 3600;
-    long minutes = (uptime % 3600) / 60;
-    long seconds = uptime % 60;
+    long double days    = uptime / 86400.0;
+    long double hours   = (uptime % 86400.0) / 3600.0;
+    long double minutes = (uptime % 3600.0) / 60.0;
+    long double seconds = uptime % 60.0;
     printf("Up: %ldd %ldh %ldm %lds\n",
        days, hours, minutes, seconds);
     return "jfgfg";
