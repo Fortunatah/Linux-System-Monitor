@@ -258,9 +258,9 @@ sysInfo get_processes( sysInfo system ){
     // grab our integers and set them to system
     char currentProcesses[12];
     get_substring( subLine , currentProcesses , 0 , 1);
-    system.runningProcesses = currentProcesses;
-    
+    system.runningProcesses = (int)strtol( currentProcesses , NULL , 10);
+
     char totalProcesses[24];
     get_substring( subLine , totalProcesses , 2 , 5);
-    system.totalProcesses = totalProcesses;
+    system.totalProcesses = (int)strtol( totalProcesses , NULL , 10);
 }
