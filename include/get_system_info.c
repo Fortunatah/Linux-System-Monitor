@@ -209,7 +209,7 @@ char *get_uptime(){
     int count = 0;
     printf("her1");
     while ((character = fgetc(file)) != ' ') {
-        printf("here")
+        printf("here");
     }
     return "Hello";
 }
