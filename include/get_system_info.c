@@ -205,10 +205,13 @@ sysInfo get_mem_info( sysInfo system ){
 
 char *get_time_string( double uptime ){
     // divide to see total minutes
-    if( ( uptime  / 60.0 ) > 0.0 ){
-        printf("here");
-    }
-    return "Hello";
+    long days    = uptime / 86400;
+    long hours   = (uptime % 86400) / 3600;
+    long minutes = (uptime % 3600) / 60;
+    long seconds = uptime % 60;
+    printf("Up: %ldd %ldh %ldm %lds\n",
+       days, hours, minutes, seconds);
+    return "jfgfg";
 }
 char *get_uptime(){
     FILE *file = fopen( "/proc/uptime" , "r" );
