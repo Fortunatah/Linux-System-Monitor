@@ -251,8 +251,13 @@ sysInfo get_processes( sysInfo system ){
         for(int i = 0; buffer[i] != '\0'; i++){
             if(buffer[i] == '/'){
                 get_substring( buffer , subLine , i - 1 , 5);
-                printf("string=%s!\n" , subLine);
+                break;
             }
         }
     }
+    // grab our integers and we are good
+    char current[12] = get_substring( subLine , current , 0 , 1);
+    printf("current = %s\n" , current);
+    char total[24] = get_substring( subLine , current , 2 , 5);
+    printf("total = %s\n" , total);
 }
