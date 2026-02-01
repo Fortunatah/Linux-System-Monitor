@@ -207,7 +207,7 @@ char *get_uptime(){
     int character;
     char uptimeNumber[64];
     int count = 0;
-    while ((character = fgetc(fp)) != EOF) {
+    while ((character = fgetc(file)) != EOF) {
         printf("%c", character);
     }
 
